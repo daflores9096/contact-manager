@@ -37,21 +37,21 @@ You do not need PHP or Composer installed locally. Everything runs inside Docker
 - `git clone https://github.com/daflores9096/contact-manager.git`
 - `cd contact-manager`
 
-2. Start the Docker environment
+2. Environment configuration
+   Create or edit .env configuration file with the following content:
+   `APP_ENV=dev
+   APP_SECRET=6a0abf708d9919d86a062f23a4339279
+   DATABASE_URL="mysql://symfony:symfony@database:3306/contact_manager?serverVersion=8.0"`
+
+3. Start the Docker environment
 - `docker compose up -d --build`
 
-This will start: PHP 7.4, Nginx, MySQL
+- This will start: PHP 7.4, Nginx, MySQL
 
-3. Install PHP dependencies
+4. Install PHP dependencies
 - `docker compose exec php composer install`
 
-4. Environment configuration
-Example .env configuration:
-`APP_ENV=dev
-APP_SECRET=6a0abf708d9919d86a062f23a4339279
-DATABASE_URL="mysql://app:app@database:3306/contact_manager?serverVersion=8.0"`
-
-5. Create the database
+5. Create the database (if not created yet)
 - `docker compose exec php php bin/console doctrine:database:create`
 
 6. Run database migrations
@@ -66,9 +66,9 @@ Users are created via a custom Symfony Command.
 
 `docker compose exec php php bin/console app:create-user admin@test.com 123456`
 This command:
-Creates the user
-Hashes the password
-Persists the user using Doctrine ORM
+- Creates the user
+- Hashes the password
+- Persists the user using Doctrine ORM
 
 ### Accessing the Application
 
