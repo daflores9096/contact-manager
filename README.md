@@ -4,8 +4,7 @@ Web application built with Symfony 5.4 LTS, Doctrine ORM, and Docker, allowing a
 The UI is based on SB Admin 2 with DataTables for a modern and user-friendly experience.
 
 ### Project Structure
-
-.
+`.
 ├── docker/
 │   ├── nginx/
 │   └── php/
@@ -24,7 +23,7 @@ The UI is based on SB Admin 2 with DataTables for a modern and user-friendly exp
 ├── docker-compose.yml
 ├── composer.json
 └── README.md
-
+`
 ### Prerequisites
 
 Docker >= 20.x
