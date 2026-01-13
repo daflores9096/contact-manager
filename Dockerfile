@@ -1,6 +1,6 @@
 FROM php:7.4-fpm
 
-# Instalar dependencias del sistema
+# Install dependencies
 RUN apt-get update && apt-get install -y \
     git \
     unzip \
@@ -17,7 +17,7 @@ RUN apt-get update && apt-get install -y \
         zip \
         opcache
 
-# Instalar Composer
+# Install Composer
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
 WORKDIR /var/www/html

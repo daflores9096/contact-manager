@@ -44,7 +44,6 @@ class ContactController extends AbstractController
             throw $this->createNotFoundException();
         }
 
-        // Seguridad: solo el dueño puede ver el contacto
         if ($contact->getOwner() !== $this->getUser()) {
             throw $this->createAccessDeniedException();
         }
@@ -93,7 +92,6 @@ class ContactController extends AbstractController
             throw $this->createNotFoundException();
         }
 
-        // Seguridad: solo el dueño puede editar
         if ($contact->getOwner() !== $this->getUser()) {
             throw $this->createAccessDeniedException();
         }
@@ -129,7 +127,6 @@ class ContactController extends AbstractController
             throw $this->createNotFoundException();
         }
 
-        // Seguridad: solo el dueño puede borrar
         if ($contact->getOwner() !== $this->getUser()) {
             throw $this->createAccessDeniedException();
         }
