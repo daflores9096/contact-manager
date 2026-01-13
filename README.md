@@ -47,7 +47,9 @@ This will start: PHP 7.4, Nginx, MySQL
 
 4. Environment configuration
 Example .env configuration:
-`DATABASE_URL="mysql://app:app@database:3306/contact_manager?serverVersion=8.0"`
+`APP_ENV=dev
+APP_SECRET=6a0abf708d9919d86a062f23a4339279
+DATABASE_URL="mysql://app:app@database:3306/contact_manager?serverVersion=8.0"`
 
 5. Create the database
 - `docker compose exec php php bin/console doctrine:database:create`
