@@ -1,0 +1,23 @@
+### Symfony ###
+/var/
+/vendor/
+/.env.local
+/.env.*.local
+/public/bundles/
+
+### Doctrine ###
+/migrations/*.php~
+
+### Logs ###
+/var/log/
+/var/cache/
+
+### Docker ###
+.env
+
+### IDE ###
+.idea/
+.vscode/
+
+### OS ###
+.DS_Store

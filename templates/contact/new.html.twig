@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1 class="h3 mb-4">New Contact</h1>
+
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    <button class="btn btn-success mt-3">Save</button>
+    {{ form_end(form) }}
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1 class="h3 mb-4 text-gray-800">Contact Details</h1>
+
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <dl class="row">
+                <dt class="col-sm-3">Name</dt>
+                <dd class="col-sm-9">{{ contact.name }}</dd>
+
+                <dt class="col-sm-3">Email</dt>
+                <dd class="col-sm-9">{{ contact.email }}</dd>
+
+                <dt class="col-sm-3">Phone</dt>
+                <dd class="col-sm-9">{{ contact.phone ?: '-' }}</dd>
+
+                <dt class="col-sm-3">Created At</dt>
+                <dd class="col-sm-9">{{ contact.createdAt|date('Y-m-d H:i') }}</dd>
+            </dl>
+
+            <a href="{{ path('contact_edit', {id: contact.id}) }}"
+               class="btn btn-warning">
+                <i class="fas fa-edit"></i> Edit
+            </a>
+
+            <a href="{{ path('contact_index') }}"
+               class="btn btn-secondary">
+                Back to list
+            </a>
+        </div>
+    </div>
+{% endblock %}

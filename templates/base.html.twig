@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Contact Manager{% endblock %}</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    {# SB Admin 2 CSS #}
+    <link href="{{ asset('vendor/sb-admin-2/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('vendor/sb-admin-2/css/sb-admin-2.min.css') }}" rel="stylesheet">
+
+    {% block stylesheets %}{% endblock %}
+</head>
+
+<body id="page-top">
+
+<div id="wrapper">
+
+    {# Sidebar #}
+    {% include 'partials/sidebar.html.twig' %}
+
+    <div id="content-wrapper" class="d-flex flex-column">
+        <div id="content">
+
+            {# Navbar #}
+            {% include 'partials/navbar.html.twig' %}
+
+            <div class="container-fluid">
+                {% block body %}{% endblock %}
+            </div>
+        </div>
+
+        {# Footer #}
+        {% include 'partials/footer.html.twig' %}
+    </div>
+
+</div>
+
+{# Scroll to top #}
+<a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+</a>
+
+{# JS #}
+<script src="{{ asset('vendor/sb-admin-2/vendor/jquery/jquery.min.js') }}"></script>
+<script src="{{ asset('vendor/sb-admin-2/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ asset('vendor/sb-admin-2/js/sb-admin-2.min.js') }}"></script>
+
+{% block javascripts %}{% endblock %}
+</body>
+</html>

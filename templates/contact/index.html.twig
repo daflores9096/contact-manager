@@ -1,0 +1,74 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link href="{{ asset('vendor/datatables/datatables.min.css') }}" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+    <h1 class="h3 mb-4 text-gray-800">Contacts</h1>
+
+    <a href="{{ path('contact_new') }}" class="btn btn-primary mb-3">
+        New Contact
+    </a>
+
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped" id="contactsTable">
+                    <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for contact in contacts %}
+                        <tr>
+                            <td>{{ contact.name }}</td>
+                            <td>{{ contact.email }}</td>
+                            <td>{{ contact.phone }}</td>
+                            <td>
+                                <a href="{{ path('contact_show', {id: contact.id}) }}"
+                                   class="btn btn-sm btn-info">
+                                    <i class="fas fa-eye"></i>
+                                </a>
+
+                                <a href="{{ path('contact_edit', {id: contact.id}) }}"
+                                   class="btn btn-sm btn-warning">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+
+                                <form method="post"
+                                      action="{{ path('contact_delete', {id: contact.id}) }}"
+                                      style="display:inline-block"
+                                      onsubmit="return confirm('Are you sure?');">
+                                    <input type="hidden" name="_token"
+                                           value="{{ csrf_token('delete' ~ contact.id) }}">
+                                    <button class="btn btn-sm btn-danger">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('vendor/datatables/datatables.min.js') }}"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#contactsTable').DataTable({
+                pageLength: 10,
+                lengthChange: false
+            });
+        });
+    </script>
+{% endblock %}
